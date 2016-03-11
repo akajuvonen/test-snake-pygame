@@ -2,8 +2,18 @@ import pygame
 from pygame.locals import *
 import time
 import sys
-from random import randint
 import pickle
+
+from snake import Snake
+from apple import Apple
+
+def check_btn_press(btn,curdir):
+  direction = curdir
+  if btn==K_UP and curdir!='D': direction='U'
+  if btn==K_DOWN and curdir!='U': direction='D'
+  if btn==K_RIGHT and curdir!='L': direction='R'
+  if btn==K_LEFT and curdir!='R': direction='L'
+  return direction
 
 def main():
 

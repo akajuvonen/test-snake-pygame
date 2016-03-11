@@ -1,3 +1,7 @@
+import pygame
+
+from random import randint
+
 class Apple:
 
   location = (10,10)
@@ -15,13 +19,4 @@ class Apple:
     loc = self.location
     rectangle = (loc[0]*scale,loc[1]*scale,scale,scale)
     pygame.draw.rect(screen,(100,0,0),rectangle)
-
-
-def check_btn_press(btn,curdir):
-  direction = curdir
-  if btn==K_UP and curdir!='D': direction='U'
-  if btn==K_DOWN and curdir!='U': direction='D'
-  if btn==K_RIGHT and curdir!='L': direction='R'
-  if btn==K_LEFT and curdir!='R': direction='L'
-  return direction
 
