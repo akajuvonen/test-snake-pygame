@@ -35,7 +35,7 @@ class Snake:
   def draw(self,screen,scale):
     for i in self.body:
       rectangle = (i[0]*scale,i[1]*scale,scale,scale)
-      pygame.draw.rect(screen,(0,100,0),rectangle)
+      pygame.draw.rect(screen,(0,50,0),rectangle)
 
 
 class Apple:
