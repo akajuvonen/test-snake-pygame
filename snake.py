@@ -2,10 +2,9 @@ import pygame
 
 class Snake:
 
-    body = []
-    direction = 'R'
 
     def __init__(self,coords):
+        self.direction = 'R'
         self.body = coords
 
     def update(self,n,m,apple):
