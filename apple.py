@@ -4,8 +4,6 @@ from random import randint
 
 class Apple:
 
-    location = (10,10)
-
     def __init__(self,coords):
         self.location = coords
 
