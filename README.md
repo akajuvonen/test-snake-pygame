@@ -3,4 +3,18 @@ A simple snake-like game with PyGame. Made to test and demonstrate pygame-relate
 
 Apples appear randomly. High-score is saved to a file using pickle, and it is loaded if file is available.
 
-Usage: python game.py
+## Dependencies
+
+You only need python, virtualenv and pip. Then create a new virtual environment, and inside that run `make init`. This will pull the necessary dependencies from requirements file using pip.
+
+## Tests
+
+If you want, you can run the unit tests with `make test`.
+
+## Running
+
+Just type `make run`.
+
+## Cleaning up
+
+If you want to get rid of the pyc files, you can do so with `make clean`.
