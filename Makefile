@@ -7,3 +7,6 @@ test:
 clean:
 	rm -fv game/*.pyc
 	rm -fv tests/*.pyc
+
+reset:
+	rm -fv score.dat
