@@ -9,7 +9,7 @@ You only need python, virtualenv and pip. Then create a new virtual environment,
 
 ## Tests
 
-If you want, you can run the unit tests with `make test`.
+If you want, you can run the unit tests with `make test`. The tests use nose, which is installed to virtualenv when initializing from the makefile.
 
 ## Running
 
