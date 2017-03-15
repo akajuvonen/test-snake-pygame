@@ -5,7 +5,7 @@ Apples appear randomly. High-score is saved to a file using pickle, and it is lo
 
 ## Dependencies
 
-You only need python, virtualenv and pip. Then create a new virtual environment, and inside that run `make init`. This will pull the necessary dependencies from requirements file using pip.
+You only need python, virtualenv and pip. Then create a new virtual environment, and inside that run `make init`. This will pull the necessary dependencies from requirements file using pip. The required packages are listed in `requirements.txt`.
 
 ## Tests
 
