@@ -1,3 +1,8 @@
+all:	init
+
+init:
+	pip install -r requirements.txt
+
 run:
 	python game/game.py
 
