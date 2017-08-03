@@ -4,13 +4,13 @@ init:
 	pip install -r requirements.txt
 
 run:
-	python game/game.py
+	python src/game.py
 
 test:
 	nosetests -v
 
 clean:
-	rm -fv game/*.pyc
+	rm -fv src/*.pyc
 	rm -fv tests/*.pyc
 
 reset:
