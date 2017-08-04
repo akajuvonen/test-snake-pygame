@@ -3,7 +3,6 @@
 import pygame
 from pygame.locals import *
 import time
-import sys
 import pickle
 
 from snake import Snake
