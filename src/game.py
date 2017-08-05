@@ -18,7 +18,8 @@ def check_btn_press(btn, curdir):
     direction -- The new direction
     """
     direction = curdir
-    # Note: we cannot move to the opposite direction (the snake would overlap itself)
+    # Note: we cannot move to the opposite direction
+    # (the snake would overlap itself)
     if btn == K_UP and curdir != 'D':
         direction = 'U'
     if btn == K_DOWN and curdir != 'U':
@@ -52,7 +53,8 @@ def main():
     background = background.convert()
     background.fill(background_color)
 
-    textbox = pygame.Surface.subsurface(background, (scale, h + 2, scale * 15, scale * 2 - 2))
+    textbox = pygame.Surface.subsurface(background, (scale, h + 2, scale * 15,
+                                                     scale * 2 - 2))
     textbox.convert()
 
     # Fill lines, making a grid
@@ -90,7 +92,7 @@ def main():
     running = 1
     # Some explanation about the loop:
     # The game loop works the way it does because we want the controls to be
-    # responsive. In this loop, the loop is repeated every 0.01 seconds (with sleep),
+    # responsive. In this loop, the loop is repeated every 0.01 seconds,
     # giving us about 100 FPS. For every frame the counter i is incremented.
     # When i is ticker (e.g., 20) we move the snake.
     # What this means is:
@@ -134,7 +136,8 @@ def main():
             apple.draw(screen, scale)
 
             # Update the text at the bottom
-            text = font.render('Score: ' + str(score) + '  High score: ' + str(highscore), 1, (0, 0, 0))
+            text = font.render('Score: ' + str(score) + '  High score: ' +
+                               str(highscore), 1, (0, 0, 0))
             textbox.blit(text, (0, 0))
 
             pygame.display.flip()
