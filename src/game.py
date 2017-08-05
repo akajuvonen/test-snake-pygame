@@ -19,10 +19,14 @@ def check_btn_press(btn, curdir):
     """
     direction = curdir
     # Note: we cannot move to the opposite direction (the snake would overlap itself)
-    if btn == K_UP and curdir!='D': direction='U'
-    if btn == K_DOWN and curdir!='U': direction='D'
-    if btn == K_RIGHT and curdir!='L': direction='R'
-    if btn == K_LEFT and curdir!='R': direction='L'
+    if btn == K_UP and curdir!='D':
+        direction='U'
+    if btn == K_DOWN and curdir!='U':
+        direction='D'
+    if btn == K_RIGHT and curdir!='L':
+        direction='R'
+    if btn == K_LEFT and curdir!='R':
+        direction='L'
     return direction
 
 def main():
@@ -103,7 +107,8 @@ def main():
                 if event.type == KEYDOWN:
                     key = event.key
                     # Press escape to quit
-                    if key == K_ESCAPE: running = 0
+                    if key == K_ESCAPE:
+                        running = 0
 
             # Move the snake every [ticker] frames
             if i == ticker:
@@ -116,9 +121,11 @@ def main():
                     apple.update(snake.body, n, m)
                     # This makes the game run faster, by decreasing ticker
                     # The minimum value (max speed) is every 7 frames
-                    if ticker > 7: ticker = ticker - 1
+                    if ticker > 7:
+                        ticker = ticker - 1
                 # Snake status == 2 means the snake died
-                if snakestatus == 2: running = 0
+                if snakestatus == 2:
+                    running = 0
                 i = 0
 
             # Apple and snake draw themselves
