@@ -19,26 +19,27 @@ def check_btn_press(btn, curdir):
     """
     direction = curdir
     # Note: we cannot move to the opposite direction (the snake would overlap itself)
-    if btn == K_UP and curdir!='D':
-        direction='U'
-    if btn == K_DOWN and curdir!='U':
-        direction='D'
-    if btn == K_RIGHT and curdir!='L':
-        direction='R'
-    if btn == K_LEFT and curdir!='R':
-        direction='L'
+    if btn == K_UP and curdir != 'D':
+        direction = 'U'
+    if btn == K_DOWN and curdir != 'U':
+        direction = 'D'
+    if btn == K_RIGHT and curdir != 'L':
+        direction = 'R'
+    if btn == K_LEFT and curdir != 'R':
+        direction = 'L'
     return direction
+
 
 def main():
     """The main function including game loop."""
     # The logical size of the playfield
-    n, m = 30,20
+    n, m = 30, 20
     # The scaling parameter for changing logical size to pixels
     scale = 25
     # The pixel size of the screen is calculated
     w, h = n * scale, m * scale
     # Set the background color
-    background_color=(100, 250, 100)
+    background_color = (100, 250, 100)
 
     # Init screen
     pygame.init()
@@ -71,7 +72,7 @@ def main():
 
     # Load high score from file if it exists
     try:
-        with open('score.dat','rb') as file:
+        with open('score.dat', 'rb') as file:
             highscore = pickle.load(file)
     except:
         highscore = 0
