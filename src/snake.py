@@ -6,7 +6,7 @@ class Snake:
     def __init__(self, coords):
         """Snake initialiation.
         Class variables:
-        self.direction -- The direction where the snake is going atm, 'L'/'R'/'U'/'D'
+        self.direction -- The direction where the snake is going, 'L' etc.
         self.body -- a list of int tuples where the snake's body currently is.
         Arguments:
         coords -- The starting position of the snake, int tuple
@@ -27,16 +27,28 @@ class Snake:
         # 0:normal, 1: ate apple, 2: died
         status = 1
         # Update x and y based on direction
-        if self.direction == 'U': x = 0; y = -1;
-        if self.direction == 'D': x = 0; y = 1;
-        if self.direction == 'R': x = 1; y = 0;
-        if self.direction == 'L': x = -1; y = 0;
+        if self.direction == 'U':
+            x = 0
+            y = -1
+        if self.direction == 'D':
+            x = 0
+            y = 1
+        if self.direction == 'R':
+            x = 1
+            y = 0
+        if self.direction == 'L':
+            x = -1
+            y = 0
         # b is the last element of the list body, means the snake's head
         b = self.body[-1]
         # This is where the snake's head will be next
         b = (b[0] + x, b[1] + y)
         # If snake hits itself or outside playfield, it dies
-        if b in self.body or b[0] > n - 1 or b[0] < 0 or b[1] > m - 1 or b[1] < 0:
+        if b in self.body or \
+           b[0] > n - 1 or \
+           b[0] < 0 or \
+           b[1] > m - 1 or \
+           b[1] < 0:
             status = 2
             return status
         # Move one space
