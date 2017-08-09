@@ -17,3 +17,6 @@ clean:
 	rm -fv config/*.pyc
 	rm -rfv .env/
 	rm -fv .coverage
+
+reset:
+	rm -fv score.dat
