@@ -1,17 +1,19 @@
 all:	init
 
 init:
-	pip install -r requirements.txt
-
-run:
-	python src/game.py
+	bin/init.sh
 
 test:
-	nosetests -v
+	bin/init.sh
+	bin/test.sh
+
+run:
+	bin/init.sh
+	bin/run.sh
 
 clean:
-	rm -fv src/*.pyc
+	rm -fv *.pyc
 	rm -fv tests/*.pyc
-
-reset:
-	rm -fv score.dat
+	rm -fv config/*.pyc
+	rm -rfv .env/
+	rm -fv .coverage
