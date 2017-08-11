@@ -23,8 +23,9 @@ class Snake:
         Arguments:
         n,m -- The logical size of the playfield
         apple -- Where is the apple atm, tuple (int,int)
+        Returns:
+        status -- (int) 0: normal, 1: ate apple, 2: died
         """
-        # 0:normal, 1: ate apple, 2: died
         status = 1
         # Update x and y based on direction
         if self.direction == 'U':
