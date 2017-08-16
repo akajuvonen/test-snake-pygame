@@ -13,7 +13,7 @@ def check_btn_press(btn, curdir):
     """A helper function for checking button press and changing direction.
     Arguments:
     btn -- Pressed key (pygame format, such as K_UP)
-    curdir -- Current direction of the snake
+    curdir -- Current direction of the snake (D, U, L, R)
     Returns:
     direction -- The new direction
     """
