@@ -14,3 +14,14 @@ class GameTest(unittest.TestCase):
         self.assertEquals(direction, 'R')
         direction = check_btn_press(K_LEFT, 'U')
         self.assertEquals(direction, 'L')
+
+    def test_check_btn_press_negative(self):
+        """Test that direction not changed opposite direction pressed"""
+        direction = check_btn_press(K_UP, 'D')
+        self.assertEquals(direction, 'D')
+        direction = check_btn_press(K_DOWN, 'U')
+        self.assertEquals(direction, 'U')
+        direction = check_btn_press(K_RIGHT, 'L')
+        self.assertEquals(direction, 'L')
+        direction = check_btn_press(K_LEFT, 'R')
+        self.assertEquals(direction, 'R')
