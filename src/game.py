@@ -69,7 +69,7 @@ def main():
     # In this example the snake is 3 elements long
     snake = Snake([(1, 3), (2, 3), (3, 3)])
     apple = Apple((5, 5))
-    apple.update(snake.body, n, m)
+    apple.update(snake, n, m)
 
     # Load high score from file if it exists
     try:
@@ -120,7 +120,7 @@ def main():
                 # If the snake ate an apple (status 1)
                 if snakestatus == 1:
                     score = score + 1
-                    apple.update(snake.body, n, m)
+                    apple.update(snake, n, m)
                     # This makes the game run faster, by decreasing ticker
                     # The minimum value (max speed) is every 7 frames
                     if ticker > 7:

@@ -25,7 +25,7 @@ class Apple:
         while 1:
             x = randint(0, n-1)
             y = randint(0, m-1)
-            if (x, y) not in snake:
+            if (x, y) not in snake.body:
                 self.location = (x, y)
                 break
 

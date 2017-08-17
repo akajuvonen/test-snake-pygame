@@ -13,7 +13,7 @@ class AppleTest(unittest.TestCase):
         snake = Snake([(1, 3), (2, 3), (3, 3)])
         apple = Apple((5, 5))
         # Update apple
-        apple.update(snake.body, n, m)
+        apple.update(snake, n, m)
         # Make sure apple is not outside the playfield
         self.assertTrue(0 <= apple.location[0] <= n)
         self.assertTrue(0 <= apple.location[1] <= m)
