@@ -17,17 +17,13 @@ class Snake:
         # In the beginning, the body is just one element long.
         self.body = coords
 
-    def update(self, n, m, apple):
-        """Snake update method.
-        Status, direction and possible death are processed here.
-        Arguments:
-        n,m -- The logical size of the playfield
-        apple -- Where is the apple atm, tuple (int,int)
+    def set_x_y(self):
+        """Update x and y based on direction where the snake is going.
+        x and y correspond to direction changes in x and y axes.
+        E.g., x = 1 and y = 0 means move one step to the right.
         Returns:
-        status -- (int) 0: normal, 1: ate apple, 2: died
+        x, y -- (int) direction changes in x and y axes (-1, 0 or 1)
         """
-        status = 1
-        # Update x and y based on direction
         if self.direction == 'U':
             x = 0
             y = -1
@@ -40,6 +36,20 @@ class Snake:
         if self.direction == 'L':
             x = -1
             y = 0
+        return x, y
+
+    def update(self, n, m, apple):
+        """Snake update method.
+        Status, direction and possible death are processed here.
+        Arguments:
+        n,m -- The logical size of the playfield
+        apple -- Where is the apple atm, tuple (int,int)
+        Returns:
+        status -- (int) 0: normal, 1: ate apple, 2: died
+        """
+        status = 1
+        # Update the coordinate changes based on where the snake is headed
+        x, y = self.set_x_y()
         # b is the last element of the list body, means the snake's head
         b = self.body[-1]
         # This is where the snake's head will be next
