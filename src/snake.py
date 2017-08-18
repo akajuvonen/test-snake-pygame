@@ -38,6 +38,24 @@ class Snake:
             y = 0
         return x, y
 
+    def check_death(self, next, n, m):
+        """A helper function to check if the snake dies.
+        Arguments:
+        next -- Where the snake will be next (from update function)
+        n, m -- (int) The logical size of the playfield
+        Returns:
+        died -- (boolean) True if the snake dies
+        """
+        died = False
+        # If snake hits itself or outside playfield, it dies
+        if next in self.body or \
+           next[0] > n - 1 or \
+           next[0] < 0 or \
+           next[1] > m - 1 or \
+           next[1] < 0:
+            died = True
+        return died
+
     def update(self, n, m, apple):
         """Snake update method.
         Status, direction and possible death are processed here.
@@ -54,12 +72,8 @@ class Snake:
         b = self.body[-1]
         # This is where the snake's head will be next
         b = (b[0] + x, b[1] + y)
-        # If snake hits itself or outside playfield, it dies
-        if b in self.body or \
-           b[0] > n - 1 or \
-           b[0] < 0 or \
-           b[1] > m - 1 or \
-           b[1] < 0:
+        # Check if the snake dies
+        if self.check_death(b, n, m):
             status = 2
             return status
         # Move one space
