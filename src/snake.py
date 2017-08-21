@@ -3,17 +3,18 @@ import pygame
 
 class Snake:
     """Snake class. The snake updates and draws itself."""
-    def __init__(self, coords):
+    def __init__(self, coords, init_direction='R'):
         """Snake initialiation.
         Class variables:
         self.direction -- The direction where the snake is going, 'L' etc.
         self.body -- a list of int tuples where the snake's body currently is.
         Arguments:
         coords -- The starting position of the snake, int tuple
+        init_direction -- The initial direction, e.g., 'R'
         """
         # Now the starting direction is always right. Might be improved
         # to allow this to be changed.
-        self.direction = 'R'
+        self.direction = init_direction
         # In the beginning, the body is just one element long.
         self.body = coords
 
