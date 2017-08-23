@@ -20,7 +20,7 @@ class SnakeTest(unittest.TestCase):
         x, y = snake.set_x_y()
         self.assertEquals(x, 1)
         self.assertEquals(y, 0)
-        snake.direction = 'l'
+        snake.direction = 'L'
         x, y = snake.set_x_y()
         self.assertEquals(x, -1)
         self.assertEquals(y, 0)
