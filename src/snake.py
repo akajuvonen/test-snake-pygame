@@ -25,6 +25,7 @@ class Snake:
         Returns:
         x, y -- (int) direction changes in x and y axes (-1, 0 or 1)
         """
+        x, y = 0, 0
         if self.direction == 'U':
             x = 0
             y = -1
