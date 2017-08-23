@@ -10,17 +10,17 @@ class SnakeTest(unittest.TestCase):
         x, y = 0, 0
         snake.direction = 'U'
         x, y = snake.set_x_y()
-        self.assertEquals(x, 0)
-        self.assertEquals(y, -1)
+        self.assertEqual(x, 0)
+        self.assertEqual(y, -1)
         snake.direction = 'D'
         x, y = snake.set_x_y()
-        self.assertEquals(x, 0)
-        self.assertEquals(y, 1)
+        self.assertEqual(x, 0)
+        self.assertEqual(y, 1)
         snake.direction = 'R'
         x, y = snake.set_x_y()
-        self.assertEquals(x, 1)
-        self.assertEquals(y, 0)
+        self.assertEqual(x, 1)
+        self.assertEqual(y, 0)
         snake.direction = 'L'
         x, y = snake.set_x_y()
-        self.assertEquals(x, -1)
-        self.assertEquals(y, 0)
+        self.assertEqual(x, -1)
+        self.assertEqual(y, 0)
