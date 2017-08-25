@@ -9,7 +9,7 @@ class Snake:
         self.direction -- The direction where the snake is going, 'L' etc.
         self.body -- a list of int tuples where the snake's body currently is.
         Arguments:
-        coords -- The starting position of the snake, int tuple
+        coords -- The starting position of the snake, list of int tuples
         init_direction -- The initial direction, e.g., 'R'
         """
         # Now the starting direction is always right. Might be improved
