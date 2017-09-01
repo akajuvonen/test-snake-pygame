@@ -48,3 +48,24 @@ class SnakeTest(unittest.TestCase):
         b = (b[0] + x, b[1] + y)
         # Check if the snake dies
         self.assertFalse(snake.check_death(b, n, m))
+
+    def test_update(self):
+        """Test that the update function returns the correct status"""
+        # Status codes
+        normal = 0
+        ate_apple = 1
+        died = 2
+        n, m = 2, 2
+        snake = Snake([(0, 1), (0, 0)])
+        snake.direction = 'R'
+        apple = (1, 1)
+        # Normal status = 0
+        status = snake.update(n, m, apple)
+        self.assertEqual(status, normal)
+        # Ate apple status = 1
+        snake.direction = 'D'
+        status = snake.update(n, m, apple)
+        self.assertEqual(status, ate_apple)
+        # Died status = 2
+        status = snake.update(n, m, apple)
+        self.assertEqual(status, died)
