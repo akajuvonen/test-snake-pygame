@@ -52,20 +52,17 @@ class SnakeTest(unittest.TestCase):
     def test_update(self):
         """Test that the update function returns the correct status"""
         # Status codes
-        normal = 0
-        ate_apple = 1
-        died = 2
         n, m = 2, 2
         snake = Snake([(0, 1), (0, 0)])
         snake.direction = 'R'
         apple = (1, 1)
         # Normal status = 0
         status = snake.update(n, m, apple)
-        self.assertEqual(status, normal)
+        self.assertEqual(status, 'normal')
         # Ate apple status = 1
         snake.direction = 'D'
         status = snake.update(n, m, apple)
-        self.assertEqual(status, ate_apple)
+        self.assertEqual(status, 'ate_apple')
         # Died status = 2
         status = snake.update(n, m, apple)
-        self.assertEqual(status, died)
+        self.assertEqual(status, 'died')

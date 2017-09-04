@@ -67,7 +67,7 @@ class Snake:
         Returns:
         status -- (int) 0: normal, 1: ate apple, 2: died
         """
-        status = 1
+        status = 'ate_apple'
         # Update the coordinate changes based on where the snake is headed
         x, y = self.set_x_y()
         # b is the last element of the list body, means the snake's head
@@ -76,7 +76,7 @@ class Snake:
         b = (b[0] + x, b[1] + y)
         # Check if the snake dies
         if self.check_death(b, n, m):
-            status = 2
+            status = 'died'
             return status
         # Move one space
         self.body.append(b)
@@ -84,7 +84,7 @@ class Snake:
         # otherwise keep it, which makes the snake longer
         if b != apple:
             self.body.pop(0)
-            status = 0
+            status = 'normal'
         return status
 
     def draw(self, screen, scale):

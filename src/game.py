@@ -118,7 +118,7 @@ def main():
                 # The snake returns it's own status
                 snakestatus = snake.update(n, m, apple.location)
                 # If the snake ate an apple (status 1)
-                if snakestatus == 1:
+                if snakestatus == 'ate_apple':
                     score = score + 1
                     apple.update(snake, n, m)
                     # This makes the game run faster, by decreasing ticker
@@ -126,7 +126,7 @@ def main():
                     if ticker > 7:
                         ticker = ticker - 1
                 # Snake status == 2 means the snake died
-                if snakestatus == 2:
+                if snakestatus == 'died':
                     running = 0
                 i = 0
 
