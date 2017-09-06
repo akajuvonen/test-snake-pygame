@@ -29,6 +29,22 @@ def check_btn_press(btn, curdir):
         direction = 'L'
     return direction
 
+def load_high_score():
+    """Load the old high score if available."""
+    try:
+        with open('score.dat', 'rb') as file:
+            highscore = pickle.load(file)
+    except:
+        highscore = 0
+    return highscore
+
+def update_high_score(score, highscore):
+    """Update the high score when it has improved."""
+    # Save the new score if improved
+    if score > highscore:
+        with open('score.dat', 'wb') as file:
+            pickle.dump(score, file)
+
 
 def main():
     """The main function including game loop."""
@@ -40,6 +56,9 @@ def main():
     w, h = n * scale, m * scale
     # Set the background color
     background_color = (100, 250, 100)
+
+    # Load the high score to be displayed later
+    highscore = load_high_score()
 
     # Init screen
     pygame.init()
@@ -70,13 +89,6 @@ def main():
     snake = Snake([(1, 3), (2, 3), (3, 3)])
     apple = Apple((5, 5))
     apple.update(snake, n, m)
-
-    # Load high score from file if it exists
-    try:
-        with open('score.dat', 'rb') as file:
-            highscore = pickle.load(file)
-    except:
-        highscore = 0
 
     # Event loop, this is where the magic happens.
     # A loop counter, explained below
@@ -145,9 +157,7 @@ def main():
             time.sleep(0.01)
 
         # Update the high score if necessary
-        if score > highscore:
-            with open('score.dat', 'wb') as file:
-                pickle.dump(score, file)
+        update_high_score(score, highscore)
 
     finally:
         pygame.quit()
