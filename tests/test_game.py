@@ -25,3 +25,11 @@ class GameTest(unittest.TestCase):
         self.assertEqual(direction, 'L')
         direction = check_btn_press(K_LEFT, 'R')
         self.assertEqual(direction, 'R')
+
+    def test_load_high_score(self):
+        """High score loading test"""
+        pass
+
+    def test_update_high_score(self):
+        """High score update test"""
+        pass
