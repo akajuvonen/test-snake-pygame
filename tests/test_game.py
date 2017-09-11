@@ -1,6 +1,7 @@
 import unittest
 from game import check_btn_press
 from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, KEYDOWN, K_ESCAPE
+import os
 
 
 class GameTest(unittest.TestCase):
