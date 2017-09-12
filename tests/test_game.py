@@ -1,5 +1,5 @@
 import unittest
-from game import check_btn_press, load_high_score
+from game import check_btn_press, load_high_score, update_high_score
 from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, KEYDOWN, K_ESCAPE
 import pickle
 import os
@@ -53,4 +53,29 @@ class GameTest(unittest.TestCase):
 
     def test_update_high_score(self):
         """High score update test"""
-        pass
+        filename = 'score.dat'
+        oldscore = 10
+        # Rename the score file if exists
+        if os.path.isfile(filename):
+            os.rename(filename, filename + '.bak')
+        # Create a high score file
+        with open(filename, 'wb') as f:
+            pickle.dump(oldscore, f)
+        # Try to update the score
+        update_high_score(oldscore - 1, oldscore)
+        # Load it
+        with open(filename, 'rb') as f:
+            highscore = pickle.load(f)
+        # Should be the same
+        self.assertEqual(highscore, oldscore)
+        # Update again
+        update_high_score(oldscore + 1, oldscore)
+        # Should have increased
+        with open(filename, 'rb') as f:
+            highscore = pickle.load(f)
+        self.assertEqual(highscore, oldscore + 1)
+        # Delete temp file
+        os.remove(filename)
+        # Rename score file to original
+        if os.path.isfile(filename + '.bak'):
+            os.rename(filename + '.bak', filename)
