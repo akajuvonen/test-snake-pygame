@@ -39,7 +39,11 @@ def load_high_score():
     return highscore
 
 def update_high_score(score, highscore):
-    """Update the high score when it has improved."""
+    """Update the high score when it has improved.
+    Arguments:
+    score -- Current score (int)
+    highscore -- Previous high score (int)
+    """
     # Save the new score if improved
     if score > highscore:
         with open('score.dat', 'wb') as file:
