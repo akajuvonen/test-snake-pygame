@@ -30,7 +30,10 @@ def check_btn_press(btn, curdir):
     return direction
 
 def load_high_score():
-    """Load the old high score if available."""
+    """Load the old high score if available.
+    Returns:
+    highscore -- High score loaded from file (int)
+    """
     try:
         with open('score.dat', 'rb') as file:
             highscore = pickle.load(file)
