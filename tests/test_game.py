@@ -1,6 +1,7 @@
 import unittest
-from game import check_btn_press
+from game import check_btn_press, load_high_score
 from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, KEYDOWN, K_ESCAPE
+import pickle
 import os
 
 
@@ -29,7 +30,26 @@ class GameTest(unittest.TestCase):
 
     def test_load_high_score(self):
         """High score loading test"""
-        pass
+        filename = 'score.dat'
+        # If score file already exists, rename it temporarily
+        if os.path.isfile(filename):
+            os.rename(filename, filename + '.bak')
+        # Try to load a high score from file
+        highscore = load_high_score()
+        # File doesn't exist so should be 0
+        self.assertEqual(highscore, 0)
+        # Create a high score file
+        with open(filename, 'wb') as f:
+            pickle.dump(999, f)
+        # Load it
+        highscore = load_high_score()
+        # Check correct score
+        self.assertEqual(highscore, 999)
+        # Delete temp file
+        os.remove(filename)
+        # Rename score file to original if necessary
+        if os.path.isfile(filename + '.bak'):
+            os.rename(filename + '.bak', filename)
 
     def test_update_high_score(self):
         """High score update test"""
