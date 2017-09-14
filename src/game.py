@@ -29,6 +29,7 @@ def check_btn_press(btn, curdir):
         direction = 'L'
     return direction
 
+
 def load_high_score():
     """Load the old high score if available.
     Returns:
@@ -40,6 +41,7 @@ def load_high_score():
     except:
         highscore = 0
     return highscore
+
 
 def update_high_score(score, highscore):
     """Update the high score when it has improved.
