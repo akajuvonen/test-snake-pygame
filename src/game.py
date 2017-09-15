@@ -56,8 +56,18 @@ def update_high_score(score, highscore):
 
 
 def get_key(current_key):
+    """Get the pressed key (if a key is pressed).
+    Arguments:
+    current_key -- The latest keypress (from pygame.locals)
+    Returns:
+    key -- The pressed key
+    running -- 1 if still running, 0 if it's time to stop (int)
+    """
+    # Current key
     key = current_key
+    # Game running by default
     running = 1
+    # Get the possible keypress
     for event in pygame.event.get():
         if event.type == KEYDOWN:
             key = event.key
