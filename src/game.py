@@ -55,6 +55,18 @@ def update_high_score(score, highscore):
             pickle.dump(score, file)
 
 
+def get_key(current_key):
+    key = current_key
+    running = 1
+    for event in pygame.event.get():
+        if event.type == KEYDOWN:
+            key = event.key
+            # Press escape to quit
+            if key == K_ESCAPE:
+                running = 0
+    return key, running
+
+
 def main():
     """The main function including game loop."""
     # The logical size of the playfield
@@ -126,12 +138,7 @@ def main():
 
             textbox.fill(background_color)
 
-            for event in pygame.event.get():
-                if event.type == KEYDOWN:
-                    key = event.key
-                    # Press escape to quit
-                    if key == K_ESCAPE:
-                        running = 0
+            key, running = get_key(key)
 
             # Move the snake every [ticker] frames
             if i == ticker:
