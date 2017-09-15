@@ -1,7 +1,7 @@
 import unittest
 import pygame
 from game import check_btn_press, load_high_score, update_high_score, get_key
-from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE
+from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE, KEYDOWN
 import pickle
 import os
 
@@ -85,12 +85,14 @@ class GameTest(unittest.TestCase):
         """Test get_key() and that escape sets running = 0"""
         # Init video system for this test
         pygame.init()
-        # We keep running
         key = K_RIGHT
+        # 1) We keep running
+        # Post a new event for pressing right key
+        pygame.event.post(pygame.event.Event(KEYDOWN, key=K_RIGHT))
         key, running = get_key(key)
         self.assertEqual(running, 1)
-        # Escape pressed, time to quit
-        # TODO
-        key = K_ESCAPE
+        # 2) Escape pressed, time to quit
+        # Post an event for pressing escape
+        pygame.event.post(pygame.event.Event(KEYDOWN, key=K_ESCAPE))
         key, running = get_key(key)
-        #self.assertEqual(running, 0)
+        self.assertEqual(running, 0)
