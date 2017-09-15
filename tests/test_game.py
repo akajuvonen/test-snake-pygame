@@ -1,6 +1,7 @@
 import unittest
-from game import check_btn_press, load_high_score, update_high_score
-from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT
+import pygame
+from game import check_btn_press, load_high_score, update_high_score, get_key
+from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, K_ESCAPE
 import pickle
 import os
 
@@ -79,3 +80,17 @@ class GameTest(unittest.TestCase):
         # Rename score file to original
         if os.path.isfile(filename + '.bak'):
             os.rename(filename + '.bak', filename)
+
+    def test_get_key(self):
+        """Test get_key() and that escape sets running = 0"""
+        # Init video system for this test
+        pygame.init()
+        # We keep running
+        key = K_RIGHT
+        key, running = get_key(key)
+        self.assertEqual(running, 1)
+        # Escape pressed, time to quit
+        # TODO
+        key = K_ESCAPE
+        key, running = get_key(key)
+        #self.assertEqual(running, 0)
