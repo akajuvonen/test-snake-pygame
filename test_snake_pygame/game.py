@@ -4,8 +4,8 @@ import pygame
 from pygame.locals import K_UP, K_DOWN, K_RIGHT, K_LEFT, KEYDOWN, K_ESCAPE
 import time
 import pickle
-from snake import Snake
-from apple import Apple
+from test_snake_pygame.snake import Snake
+from test_snake_pygame.apple import Apple
 
 
 def check_btn_press(btn, curdir):

@@ -3,18 +3,17 @@ A simple snake-like game with PyGame. Made to test and demonstrate pygame-relate
 
 Apples appear randomly. High-score is saved to a file using pickle, and it is loaded if file is available.
 
-## Dependencies
+## Installation
 
-You only need python, virtualenv and pip. Then create a new virtual environment, and inside that run `make init`. This will pull the necessary dependencies from requirements file using pip. The required packages are listed in `requirements.txt`.
+Recommended way to install is to first initialize a virtual environment, then
+install the game with `pip install .`.
 
-## Tests
-
-If you want, you can run the unit tests with `make test`. The tests use nose, which is installed to virtualenv when initializing from the makefile.
+For development, you can install requirements with `pip install -r requirements.txt`.
 
 ## Running
 
-Just type `make run`.
+After installation, the game can be started with command `snake-run`.
 
-## Cleaning up
+## Tests
 
-If you want to get rid of the pyc files, you can do so with `make clean`.
+You can run the test suite with `python setup.py test`.
